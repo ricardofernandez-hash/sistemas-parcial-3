@@ -67,8 +67,10 @@ class GestorCitas:
             cli = self.buscar_cliente(int(d["id_cliente"]))
             prof = self.buscar_profesional(int(d.get("id_profesional", 1)))
             if cli:
+                fecha_str = str(d["fecha"])[:10]  # Toma solo AAAA-MM-DD
+                hora_str = str(d["hora"])[:5]     # Toma solo HH:MM
                 cita = Cita(
-                    d["id_cita"], cli, str(d["fecha"]), str(d["hora"]),
+                    d["id_cita"], cli, fecha_str, hora_str,
                     d["servicio"], int(d["duracion_min"]), d["estado"],
                     prof, d.get("consultorio", "Consultorio 1"), float(d.get("precio", 25000))
                 )
