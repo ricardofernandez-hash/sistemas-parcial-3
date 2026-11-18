@@ -79,7 +79,7 @@ class GestorCitas:
             cita = self.buscar_cita(int(d["id_cita"]))
             if cita:
                 fact = Factura(
-                    d["id_factura"], cita, d["metodo_pago"], 0.0, str(d["fecha_emision"])
+                    d["id_factura"], cita, d["metodo_pago"], descuemto aplicado, str(d["fecha_emision"])
                 )
                 self._facturas.append(fact)
 
